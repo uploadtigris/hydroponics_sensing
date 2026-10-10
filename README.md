@@ -5,8 +5,14 @@ garden. The stock Gardyn controller keeps running the pump and lights. A separat
 Raspberry Pi Pico W, running Rust firmware from this repo, adds the sensors and displays
 and publishes everything to MQTT.
 
-**Status:** documentation only. No firmware yet. See [roadmap](docs/roadmap.md) and
+**Status:** documentation done; bench bring-up started (OLED on the Pico works). No firmware yet. See [roadmap](docs/roadmap.md) and
 [open questions](docs/open-questions.md).
+
+## First power
+
+![A Raspberry Pi Pico on a breadboard with an OLED showing "Hydroponics Sensor Project!" and a BME-family sensor board](images/03_oled_first_power.jpg)
+
+*2026-10-10: the Pico driving an OLED on the bench. Details and next photos: [build log](docs/build-log.md).*
 
 ## System diagram
 
@@ -42,6 +48,7 @@ Full list with status: [bill of materials](docs/hardware/bill-of-materials.md).
 
 | Area | Docs |
 |---|---|
+| Progress | [build log](docs/build-log.md) (photos and the shot list) |
 | Design | [architecture](docs/architecture.md), [decisions (ADRs)](docs/decisions/), [roadmap](docs/roadmap.md), [open questions](docs/open-questions.md) |
 | Hardware | [BOM](docs/hardware/bill-of-materials.md), [I2C address map](docs/hardware/i2c-address-map.md), [wiring](docs/hardware/wiring.md), [Pi Zero health check](docs/hardware/pi-zero-health-check.md), [plumbing](docs/hardware/plumbing.md), [sensor bring-up](docs/hardware/sensor-bringup.md) |
 | Software | [Pi setup](docs/software/pi-setup.md), [Pico firmware](docs/software/pico-firmware.md), [MQTT topics](docs/software/mqtt-topics.md) |

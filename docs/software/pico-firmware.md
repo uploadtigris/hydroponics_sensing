@@ -16,7 +16,9 @@ supports the RP2040 and is maintained. See [ADR 0002](../decisions/0002-rust-on-
 | Sensors | `bme280`, `bh1750` |
 | Debug output | `defmt`, `probe-rs` |
 
-MicroPython is an acceptable first pass to prove the wiring, then port.
+MicroPython is an acceptable first pass to prove the wiring, then port. **Status:** the first OLED test
+(2026-10-10) was done this way, in MicroPython from Thonny ([build log](../build-log.md)). Keep those
+scripts as the reference for pins and addresses when writing the Rust.
 
 ## Module layout (proposed)
 

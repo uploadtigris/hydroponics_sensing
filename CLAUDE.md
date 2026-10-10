@@ -12,7 +12,7 @@ A revived Gardyn indoor vertical garden plus extra sensors. Two nodes talk over 
   water level, button, cameras, INA219, PCT2075 and the DHT20/AM2320.
 - **Sensing node:** Raspberry Pi Pico W running Rust (planned: embassy-rp + cyw43). Reads
   2x BME280, 3x BH1750, drives 5x OLED, publishes to the Pi's broker with Home Assistant
-  discovery. Preferred bus layout: a TCA9548A I2C mux (see [ADR 0004](docs/decisions/0004-i2c-mux-vs-multibus.md)).
+  discovery. Home Assistant runs elsewhere, on the Latitude 7490 with NextCloud. Preferred bus layout: a TCA9548A I2C mux (see [ADR 0004](docs/decisions/0004-i2c-mux-vs-multibus.md)).
 
 Details: [architecture](docs/architecture.md), [I2C map](docs/hardware/i2c-address-map.md),
 [wiring](docs/hardware/wiring.md).

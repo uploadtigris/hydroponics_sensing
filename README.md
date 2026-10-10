@@ -31,7 +31,7 @@ flowchart LR
     S --- MUX --- FW
   end
   FW -- "Wi-Fi, MQTT" --> MQ
-  MQ --> HA["Home Assistant (location TBD)"]
+  MQ --> HA["Home Assistant<br/>(Latitude 7490, with NextCloud)"]
   MQ -. optional .-> TG["Telegraf, InfluxDB, Grafana"]
 ```
 

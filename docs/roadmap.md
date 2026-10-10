@@ -34,7 +34,8 @@ Tick a box only with evidence (a command output or a photo).
 ## Phase 4: Networking
 
 - [ ] Pico joins Wi-Fi and reconnects after a drop
-- [ ] Pico publishes `hydro/pico1/...` to the Pi's broker with its own MQTT user
+- [ ] Broker location decided (Pi or the 7490) and its one firewall rule written and tested from the restricted side
+- [ ] Pico publishes `hydro/pico1/...` to the broker with its own MQTT user
 - [ ] HA discovery makes the sensors appear ([mqtt-topics.md](software/mqtt-topics.md))
 - [ ] Broker restart and Wi-Fi drop tested; behaviour matches [architecture.md](architecture.md)
 

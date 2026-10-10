@@ -29,6 +29,24 @@ sequenceDiagram
 The two nodes never talk directly. The broker on the Pi is the only integration point
 ([ADR 0005](decisions/0005-mqtt-integration.md)).
 
+## Where Home Assistant runs
+
+Home Assistant runs on the Latitude 7490, with NextCloud (decided 2026-10-10). The 7490 is planned
+for the Servers VLAN (switch port 4); the Pi Zero W and Pico W are planned for IoT (see
+[open-questions.md](open-questions.md), D4). Per the
+[segmentation design](https://github.com/uploadtigris/network-segmentation-ids), Servers cannot start
+connections into other VLANs, and IoT is limited to DNS (Pi-hole) and the internet. So HA and the
+broker cannot talk by default, and one narrow rule is needed. Two ways to do it:
+
+| Option | Rule needed | Effect |
+|---|---|---|
+| A. Broker stays on the Pi Zero W | Servers to IoT: pass TCP 1883 from the 7490 to the Pi | Servers starts a connection into IoT, which the design currently forbids |
+| B. Broker moves to the 7490 (Mosquitto beside HA); the Pi and Pico publish to it | IoT to Servers: pass TCP 1883 from the Pi and Pico to the 7490 only | One-way, host-specific, same pattern as the Wazuh exception. Needs `MQTT_BROKER` in the Pi's `.env` pointed at the 7490. The 7490 is also the always-on box, so the broker is not tied to a possibly unhealthy Pi |
+
+Leaning towards **B**, but **not decided**: the owner chooses. Until then the rest of these docs
+describe the broker on the Pi, and the diagrams stay as they are. Garden-of-eden keeps running its
+pump and light schedule locally whichever option is picked.
+
 ## Why split
 
 - garden-of-eden already provides REST, web UI (`http://gardyn.local:5000/`), MQTT and Home

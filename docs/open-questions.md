@@ -22,13 +22,28 @@ and point here.
 | # | Question | Notes |
 |---|---|---|
 | 10 | Sensor mounting heights and which sensors go where | Drives the mux channel layout |
-| 11 | Where Home Assistant runs | HA instance not yet identified |
+| 11 | **Where the MQTT broker lives (decision needed):** stay on the Pi Zero W, or move to the Latitude 7490 next to Home Assistant. See [architecture.md](architecture.md#where-home-assistant-runs) | Affects firewall rules and ADR 0005 |
 | 12 | How the Pico is powered (USB supply or a tap from the Gardyn PSU) | |
 | 13 | How many OLEDs to actually use | Five is a lot; two may do |
 | 14 | MQTT identifier and Pico MQTT user name | |
 | 15 | Publish intervals for the Pico | Proposals in mqtt-topics |
 | 16 | Buffer readings when the broker is down? | Not in v1 |
 | 17 | Monthly/quarterly maintenance intervals | |
+
+## Decided
+
+| # | Decision | Date |
+|---|---|---|
+| D1 | Home Assistant runs on the Latitude 7490, alongside NextCloud | 2026-10-10 |
+
+Follow-ups from D1 (not yet answered):
+
+| # | Question | Notes |
+|---|---|---|
+| D2 | How HA is installed on the 7490 | HA OS takes the whole machine, so running next to NextCloud probably means HA Container (Docker). Confirm |
+| D3 | The 7490 is on Mgmt today and moves to Servers (port 4) later | Until then, HA and the nodes are on different networks. Decide the interim setup |
+| D4 | Which VLAN the Pi Zero W and Pico W live on | The segmentation docs plan IoT for the hydroponics project; not yet verified for these devices |
+| D5 | 16 GB RAM on the 7490 shared by HA and NextCloud | Check headroom when both run |
 
 ## Unverified facts
 

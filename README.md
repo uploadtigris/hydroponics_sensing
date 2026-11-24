@@ -2,7 +2,7 @@
 
 Sensing temperature, humidity, pressure and light for a revived Gardyn indoor vertical
 garden. The stock Gardyn controller keeps running the pump and lights. A separate
-Raspberry Pi Pico W, running Rust firmware from this repo, adds the sensors and displays
+Raspberry Pi Pico W, running C firmware from this repo, adds the sensors and displays
 and publishes everything to MQTT.
 
 **Status:** documentation done; bench bring-up started (OLED on the Pico works). No firmware yet. See [roadmap](docs/roadmap.md) and
